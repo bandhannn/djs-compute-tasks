@@ -1,0 +1,125 @@
+code 1
+
+def check_weirdness(n):
+    if n % 2 == 1:  
+        print("Weird")
+    elif 2 <= n <= 5:  
+        print("Not Weird")
+    elif 6 <= n <= 20:  
+        print("Weird")
+    else:
+        print("Not Weird")
+
+check_weirdness(n)
+
+
+
+code 2
+
+def print_squares(n):
+    for i in range(n):            #i will start from 0 
+        print(i ** 2)
+
+print_squares(n)
+
+
+
+code 3
+
+def is_leap(year):
+    leap = False
+    
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                leap = True
+        else:
+            leap = True
+    
+    return leap
+
+year = int(input())
+
+
+
+
+code 4
+
+
+if __name__ == '__main__':
+    N = int(input())
+    lst=[]
+    for i in range(N):
+        cmd=input().split()             #str converted to list  [remove,6]
+        if cmd[0]=='insert':                                           #cmd 0,1
+            lst.insert(int(cmd[1]),int(cmd[2]))
+        elif cmd[0]=='print':
+            print(lst)
+        elif cmd[0]=='remove':
+            lst.remove(int(cmd[1])) 
+        elif cmd[0]=='append':
+            lst.append(int(cmd[1]))
+        elif cmd[0]=='sort':
+            lst.sort()
+        elif cmd[0]=='pop':
+            lst.pop()
+        else:
+            lst.reverse()
+                
+             
+                       
+            
+code 5
+
+import numpy
+
+def arrays(arr):
+    # complete this function
+    # use numpy.array
+    a=numpy.array(arr, float)
+    return a[::-1]
+
+arr = input().strip().split(' ')
+result = arrays(arr)
+print(result)    
+
+
+
+code 6
+
+
+
+cube = lambda x: x ** 3  # complete the lambda function 
+
+def fibonacci(n):
+    # return a list of fibonacci numbers
+    a=0
+    b=1
+    l=[]
+    if n==0:
+        pass
+    elif n==1:
+        l.append(a)
+    else:
+        l.append(a)
+        l.append(b)
+        for i in range(2,n):
+            c=a+b
+            a=b
+            b=c
+            l.append(c)
+    return l
+    
+        
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))
+
+
+
+
+
+code 7:
+
+
+same as 4
