@@ -1,0 +1,201 @@
+Q.1)def compute_average_scores(student_records):
+
+  student_scores = {}
+
+  for student_record in student_records:
+    student_name = student_record[0]
+    student_subject_scores = student_record[1:]
+
+    if student_name in student_scores:
+      student_scores[student_name].extend(student_subject_scores)
+    else:
+      student_scores[student_name] = student_subject_scores
+
+
+  for student_name, student_subject_scores in student_scores.items():
+    average_score = sum(student_subject_scores) / len(student_subject_scores)
+    student_scores[student_name] = average_score
+
+  return student_scores
+student_records = [
+  ["Alice", 80, 90, 75],
+  ["Bob", 95, 85, 90],
+  ["Carol", 70, 80, 65],
+]
+
+average_scores = compute_average_scores(student_records)
+
+print("The average scores of each student are:")
+for student_name, average_score in average_scores.items():
+  print(f"{student_name}: {average_score}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q.2)def find_top_three_most_common_characters(string):
+
+  character_frequencies = {}
+  for character in string:
+    if character in character_frequencies:
+      character_frequencies[character] += 1
+    else:
+      character_frequencies[character] = 1
+
+  sorted_character_frequencies = sorted(
+      character_frequencies.items(), key=lambda item: item[1], reverse=True)
+
+  top_three_characters = sorted_character_frequencies[:3]
+  return top_three_characters
+
+string = "google"
+top_three_characters = find_top_three_most_common_characters(string)
+
+print("The top three most common characters in the string are:")
+for character, frequency in top_three_characters:
+  print(f"{character}: {frequency}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q.3)
+n = int(input())
+
+student_marks = {}
+
+for i in range(n):
+    name, marks = input().split()
+
+    marks = [int(mark) for mark in marks.split()]
+
+    student_marks[name] = marks
+
+query_name = input()
+
+student_marks = student_marks[query_name]
+
+average = sum(student_marks) / len(student_marks)
+
+print(f"{average:.2f}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q.4)import re
+
+
+n = int(input())
+
+email_addresses = []
+for _ in range(n):
+    email = input()
+    email_addresses.append(email)
+is_valid_email = lambda email: re.match(r'^[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]+$', email)
+
+
+valid_emails = list(filter(is_valid_email, email_addresses))
+valid_emails.sort()
+
+for email in valid_emails:
+    print(email)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q.5)
+input_string = input("Enter a string: ")
+index_to_change = int(input("Enter the index to change (0-based index): "))
+new_character = input("Enter the new character: ")
+if 0 <= index_to_change < len(input_string):
+    modified_string = input_string[:index_to_change] + new_character + input_string[index_to_change + 1:]
+else:
+    print("Invalid index. The index is out of range.")
+print("Modified string:", modified_string)
+
+
+
+
+Q.6)
+numbers_x = [10, 20, 30, 40, 10]
+numbers_y = [75, 65, 35, 75, 30]
+
+def check(numbers):
+    if numbers[0] == numbers[-1]:
+        return True
+    else:
+        return False
+
+result_x = check(numbers_x)
+result_y = check(numbers_y)
+
+print("For numbers_x:", result_x)
+print("For numbers_y:", result_y)
+
+Q.7)start_char = ord('A')
+num = 1
+
+for i in range(5):
+    if i % 2 == 0:
+        for j in range(i + 1):
+            print(chr(start_char), end=" ")
+            start_char += 1
+        print()
+    else:
+        for j in range(i + 1):
+            print(num, end=" ")
+            num += 1
+        print()
+
+Q.8)
+
+row = int(input('Enter number of rows required: '))
+
+for i in range(row):
+    for j in range(row-i):
+        print(' ', end='')
+    
+    for j in range(2*i+1):
+        if j==0 or j==2*i or i==row-1:
+            print('*',end='')
+        else:
+            print(' ', end='')
+    print()
+
+
